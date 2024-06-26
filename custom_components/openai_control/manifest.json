@@ -1,7 +1,7 @@
 {
   "domain": "openai_control",
   "name": "OpenAI Conrtrol",
-  "codeowners": ["@alanjames1987"],
+  "codeowners": ["@duckida"],
   "config_flow": true,
   "dependencies": ["conversation"],
   "documentation": "https://github.com/alanjames1987/OpenAI-Action-HA",
