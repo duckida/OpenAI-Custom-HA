@@ -61,7 +61,7 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> None:
     """
     openai.api_base = "https://api.groq.com/openai/v1"
     openai.api_key = data[CONF_API_KEY]
-    await hass.async_add_executor_job(partial(openai.Engine.list, request_timeout=10))
+    # await hass.async_add_executor_job(partial(openai.Engine.list, request_timeout=10))
 
 
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
@@ -80,13 +80,13 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         errors = {}
 
-        try:
+        #try:
             await validate_input(self.hass, user_input)
-        except error.APIConnectionError:
+        #except error.APIConnectionError:
             errors["base"] = "cannot_connect"
-        except error.AuthenticationError:
+        #except error.AuthenticationError:
             errors["base"] = "invalid_auth"
-        except Exception:  # pylint: disable=broad-except
+        #except Exception:  # pylint: disable=broad-except
             _LOGGER.exception("Unexpected exception")
             errors["base"] = "unknown"
         else:
